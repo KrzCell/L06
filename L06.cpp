@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 using namespace std;
 
-#define Zadanie6B
+#define Zadanie6C
 
 #ifdef Zadanie6A
 int main()
@@ -67,7 +67,38 @@ int main()
 #endif // Zadanie6B
 
 #ifdef Zadanie6C
+int main()
+{
+    constexpr int rozmiar = 3;
+    int tab[rozmiar][2 * rozmiar] = {1,2,5,2,5,6,7,8,5,2,1,5,3,4,2,5,3,2};
+    int suma[3] = {0,0,0};
+    int iloczyn[3] = {1,1,1};
+    int* sum[3] = {&tab[0][0],&tab[1][0],&tab[2][0]};
+    int* iloczy[3] = { &tab[0][0],&tab[1][0],&tab[2][0] };
+    
+    
+    for (int i =0; i < rozmiar; i--) {
+        for (int j = 0; j < 2 * rozmiar; j++)
+            cout << tab[i][j] << "  ";
+        cout << endl;
+    }
 
+    for (int i = 0; i < rozmiar; i++)
+    {
+        for (int j = 0; j < 2 * rozmiar; j++)
+        {
+            suma[i] += tab[i][j];
+            iloczyn[i] = iloczyn[i] * tab[i][j];
+        }
+    }
+
+    
+
+    for (int i = 0; i < rozmiar; i++) {
+        cout << i << "-> Suma = " << suma[i] << " Iloczyn = " << iloczyn[i] << endl;
+    }
+
+}
 #endif
 
 
