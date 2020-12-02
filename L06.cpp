@@ -14,22 +14,29 @@ int main()
     t2 = &tekst[0];
     for (i = 0; i < strlen(tekst); i++)
         *t1 = tekst[i];
+    
     t1 = &tekst[0];
-    for (t1=tekst;t1<tekst+strlen(tekst);t1++)
+
+    for (int i=0;i<strlen(tekst)-1;i++)
     {
         if (*t1 >= 'a' && *t1 <= 'z' || *t1 >= 'A' && *t1 <= 'Z')
         {
             *t2 = *t1;
+            t1++;
         }
         else
         {
             *t2 = ' ';
         }
+        t2++;
     }
-    *t2 = '\0';
-    
-    cout << "Tekst: " << tekst << endl;
 
+    tekst[i] = '\0';
+    
+    for (i = 0; i < strlen(tekst) - 1; i++)
+    {
+        cout <<tekst[i];
+    }
 }
 
 
