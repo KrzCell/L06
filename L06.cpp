@@ -1,6 +1,9 @@
 ﻿#include <iostream>
 using namespace std;
 
+#define Zadanie6B
+
+#ifdef Zadanie6A
 int main()
 {
     char tekst[100];
@@ -38,5 +41,33 @@ int main()
         cout <<tekst[i];
     }
 }
+#endif // DEBUG
+
+#ifdef Zadanie6B
+int main()
+{
+    char zdanie[] = "tomek ma rybki ";
+    char *poczatek = zdanie; 
+    char *koniec = zdanie;
+    int dlugosc=0;
+    cout << zdanie << endl;
+    while (*koniec != '\0')
+    {
+        koniec++;
+        if (*koniec == ' ' || *koniec == '\0')
+        {
+            char ost = *(koniec - 1);
+            bool znak = (ost == ',' || ost == '!' || ost == '.' || ost == '?');
+            dlugosc = poczatek - koniec - (int)znak;
+            cout << dlugosc << "  ";
+        }
+        poczatek = koniec + 1;
+    }
+}
+#endif // Zadanie6B
+
+#ifdef Zadanie6C
+
+#endif
 
 
